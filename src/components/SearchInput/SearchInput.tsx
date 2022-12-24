@@ -15,7 +15,7 @@ export const SearchInput = (props: SearchInputProps) => {
     () =>
       debounce((value: string) => {
         onSearch(value);
-      }, 1000),
+      }, 100),
     [onSearch]
   );
 

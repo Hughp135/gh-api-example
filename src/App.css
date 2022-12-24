@@ -2,3 +2,18 @@
   max-width: 1000px;
   margin: 5px auto;
 }
+
+.repo {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+h3,
+p {
+  margin: 5px 0;
+}
+
+.error {
+  color: rgb(124, 0, 0);
+}

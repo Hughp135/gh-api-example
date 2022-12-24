@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useApi } from '../../hooks/useApi';
+import { Dropdown } from '../Dropdown/Dropdown';
 import { SearchInput } from '../SearchInput/SearchInput';
 
 export const SearchPage = () => {
@@ -15,9 +16,11 @@ export const SearchPage = () => {
           setSearch(input);
         }}
       />
+      <p>Sort results by:</p>
+      <Dropdown onChange={(value) => setSort(value)} />
       {loading && 'Loading...'}
       {error && 'Error ' + error.message}
-      {JSON.stringify(data)}
+      {data && JSON.stringify(data)}
     </div>
   );
 };

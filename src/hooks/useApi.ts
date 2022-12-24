@@ -58,7 +58,5 @@ export const useApi = (
     }
   }, [search, page, sort]);
 
-  console.log('error', error);
-
   return [loading, error, data];
 };

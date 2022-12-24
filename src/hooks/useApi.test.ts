@@ -14,7 +14,7 @@ describe('useApi', () => {
   });
   test('useApi should return loading, error, and data state', async () => {
     const { result, waitForNextUpdate } = renderHook(() =>
-      useApi('search query')
+      useApi('search query', 1, 'stars')
     );
     expect(result.current).toEqual([true, null, null]);
     await waitForNextUpdate();
@@ -28,10 +28,19 @@ describe('useApi', () => {
       .mockImplementation(() => Promise.reject(mockError));
 
     const { result, waitForNextUpdate } = renderHook(() =>
-      useApi('search query')
+      useApi('search query', 1, 'stars')
     );
     expect(result.current).toEqual([true, null, null]);
     await waitForNextUpdate();
     expect(result.current).toEqual([false, mockError, null]);
+  });
+
+  test('useApi should not fetch data if the search query is too short', async () => {
+    const { result, waitForNextUpdate } = renderHook(() =>
+      useApi('se', 1, 'stars')
+    );
+    expect(result.current).toEqual([false, null, null]);
+    expect(result.current).toEqual([false, null, null]);
+    expect(global.fetch).not.toHaveBeenCalled();
   });
 });

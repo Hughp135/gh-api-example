@@ -19,9 +19,9 @@ export const useApi = (
   search: string,
   page: number,
   sort: string
-): [boolean, Error, SearchResponse | null] => {
+): [boolean, Error | null, SearchResponse | null] => {
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<any>(null);
+  const [error, setError] = useState<Error | null>(null);
   const [data, setData] = useState(null);
 
   async function fetchData() {
@@ -43,7 +43,7 @@ export const useApi = (
         setData(data);
       }
     } catch (e) {
-      setError(e);
+      setError(e as Error);
     } finally {
       setLoading(false);
     }

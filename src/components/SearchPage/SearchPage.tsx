@@ -41,7 +41,7 @@ export const SearchPage = () => {
           {data.items && <SearchResults data={data.items} />}
         </div>
       )}
-      {loading && <p>'Loading...'</p>}
+      {loading && <p>Loading...</p>}
       {error && <p className="error">{'Error: ' + error.message}</p>}
     </div>
   );

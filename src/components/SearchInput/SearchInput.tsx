@@ -38,7 +38,7 @@ export const SearchInput = (props: SearchInputProps) => {
         type="text"
         value={search}
         onChange={handleChange}
-        placeholder="Search"
+        placeholder="Search repositories..."
         ref={searchInputRef}
       />
       {search && (
